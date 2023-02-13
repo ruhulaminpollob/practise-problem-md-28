@@ -9,11 +9,11 @@
 </head>
 <body>
     <section>
-        <div class="bg-red-600 w-fit p-10 rounded-lg m-10 mx-auto">
+        <div class="bg-red-500 w-fit p-10 rounded-lg m-10 mx-auto">
             <h1 id="output" class="text-5xl font-semibold text-white">00</h1>
         </div>
         
-        <div class="bg-teal-600 p-5 w-1/2 mx-auto rounded">
+        <div class="bg-teal-500 p-5 w-1/2 mx-auto rounded">
             
             <input id="input-filed" class="py-1 px-2 rounded-sm block w-full" placeholder="Inter Number" type="text">
             <div class="text-center">
@@ -40,12 +40,22 @@
         }
         function setValueById(id, value) {
             const getSetLocation =document.getElementById(id);
-            getSetLocation.innerText = value*2;
+            if (isNaN(value)) {
+                return;
+            }
+            getSetLocation.innerText = value;
         }
+        // double button 
         document.getElementById('double-btn').addEventListener('click', function () {
             const doubleInputValue=getValueById('input-filed');
             const doubleOutputValue=getElementById('output');
-            const setDoubleOutputValue =setValueById('output', doubleInputValue);           
+            const setDoubleOutputValue =setValueById('output', doubleInputValue*2);           
+        })
+
+        // triple button
+        document.getElementById('triple-btn').addEventListener('click', function () {
+            const tripleInputValue =getValueById('input-filed');
+            const setTripleOutputValue =setValueById('output', tripleInputValue*3)    
         })
     </script>
 </body>
