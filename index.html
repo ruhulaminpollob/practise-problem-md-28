@@ -18,12 +18,35 @@
             <input id="input-filed" class="py-1 px-2 rounded-sm block w-full" placeholder="Inter Number" type="text">
             <div class="text-center">
                 <button id="double-btn" class="bg-amber-500 rounded py-2 px-3 m-5 text-white font-semibold hover:shadow">Double</button>
-                <button id="double-btn" class="bg-cyan-600 rounded py-2 px-3 m-5 text-white font-semibold hover:shadow">Double</button>
+                <button id="triple-btn" class="bg-cyan-600 rounded py-2 px-3 m-5 text-white font-semibold hover:shadow">Double</button>
             </div>
         </div>
     </section>
     <script>
-        
+
+        function getValueById(input) {
+            const getInputValue=document.getElementById(input);
+            const getValueString = getInputValue.value;
+            const getValue= parseFloat(getValueString);
+            getInputValue.value = '';
+            return getValue;
+        }
+        function getElementById(element) {
+            const  getElement=document.getElementById(element);
+            const getElementString =getElement.innerText;
+            const getPreviousElement=parseFloat(getElementString);
+            return getPreviousElement;
+
+        }
+        function setValueById(id, value) {
+            const getSetLocation =document.getElementById(id);
+            getSetLocation.innerText = value*2;
+        }
+        document.getElementById('double-btn').addEventListener('click', function () {
+            const doubleInputValue=getValueById('input-filed');
+            const doubleOutputValue=getElementById('output');
+            const setDoubleOutputValue =setValueById('output', doubleInputValue);           
+        })
     </script>
 </body>
 </html>
